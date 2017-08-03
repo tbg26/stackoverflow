@@ -20,6 +20,40 @@ Python 2.7
 
 ## Usage Instructions
 
+### API Access (One-time Setup)
+
+Follow these steps to set up your one time token for the StackOverflow API.
+
+##### Set up API credentials
+
+1. Go to the [StackExchange API](https://api.stackexchange.com/) site
+2. Select Register for an App Key
+3. Create or log into your StackExchange account
+4. Fill out the form and register your application:
+
+```
+Application Name: Udemy Stack API
+Description: any
+OAuth Domain: udemy.com
+Application Website: udemy.com
+**Check the box for "Enable Client Side OAuth Flow"
+
+```
+
+5. Open the [client_secrets.csv](client_secrets.csv) file
+6. Save the Client ID and Key in their respective fields
+7. Open Terminal / Command Line and navigate to the directory
+8. Run the following command which will output a URL in the terminal window
+
+```
+$ python main.py token
+```
+9. Navigate to the URL in your browser
+10. Log in with the same user account used to create the API key
+11. Click Approve
+12. Copy the entire value after "access_token=" from the URL and save it in client_secrets.csv
+
+
 ### Topics
 
 ##### Prepare the CSV
@@ -31,19 +65,18 @@ See existing [topics.csv](topics.csv) as a reference
 
 ##### Run the Script
 1. Open Terminal / Command Line and navigate to the directory
-2. Run the command
+2. Run the command with the file flag
 
 ```
-$ python main.py topics
+$ python main.py topics --file=topics.csv
 ```
 
 ##### Additional arguments:
-- --file: specify an alternate filename for the list of topics
 - --all_time: set to True to look at all historical data (default is the last month)
 - --max: choose the max results up to 100 (default is 10)
 
 ```
-$ python main.py topics --file=my_topics.csv --all_time=true --max=20 
+$ python main.py topics --file=topics.csv --all_time=true --max=20 
 ```
 
 ### Search
@@ -68,11 +101,10 @@ $ python main.py search --file=keywords.csv
 ```
 
 ##### Additional arguments:
-- --file: specify an alternate filename for the list of keywords
 - --from_date: start date for questions (default is 01/01/2017)
 - --to_date: end date for questions (default is current date)
 - --max: choose the max results up to 100 (default is 10)
 
 ```
-$ python main.py topics --file=my_keywords.csv --from_date=07/01/2017 --to_date=07/31/2017 --max=25
+$ python main.py topics --file=keywords.csv --from_date=07/01/2017 --to_date=07/31/2017 --max=25
 ```

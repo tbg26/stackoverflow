@@ -24,11 +24,16 @@ for row in KEYS_READ:
 KEYS.close()
 
 
-def token():
+def token(options):
     resp = requests.get('https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + '&scope=no_expiry&'
                         'redirect_uri=https://stackexchange.com/oauth/login_success/')
-    pprint(vars(resp))
+    url = 'https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + \
+          '&redirect_uri=https%3a%2f%2fstackexchange.com%2foauth%2flogin_success%2f&scope=no_expiry' \
+          '&response_type=token&state=&returnurl=%2foauth%2fdialog%3fclient_id%3d' + CLIENT_ID + \
+          '%26redirect_uri%3dhttps%253a%252f%252fstackexchange.com%252foauth' \
+          '%252flogin_success%252f%26scope%3dno_expiry%26response_type%3dtoken%26state%3d'
 
+    print url
 
 def search(options):
     ########################################################
@@ -172,7 +177,8 @@ def topics(options):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     FUNCTION_MAP = {'topics': topics,
-                    'search': search}
+                    'search': search,
+                    'token': token}
 
     parser.add_argument('command', choices=FUNCTION_MAP.keys())
     parser.add_argument("--file", help="Input CSV name", default="topics.csv")
