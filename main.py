@@ -103,6 +103,8 @@ def search(options):
                 wr.writerow([keyword, question_title, closed_date, tags, answer_id, answer_user_id, answer_user_name,
                              answer_user_profile_url, answer_user_reputation, answer_score, age, location, website_url])
 
+    print 'File Ready: ' + results
+
     k.close()
     w.close()
 
@@ -168,6 +170,8 @@ def topics(options):
 
             ur.writerow([topic, user_id, display_name, profile_url, reputation, accept_rate, post_count,
                              score, age, location, website_url])
+
+    print 'File Ready: ' + results
 
     t.close()
     u.close()
