@@ -72,7 +72,7 @@ $ python main.py topics --file=topics.csv
 
 ##### Additional arguments:
 - --all_time: set to True to look at all historical data (default is the last month)
-- --max: choose the max results up to 100 (default is 10)
+- --max: choose the max results up to 100 (default is 10 per topic)
 
 ```
 $ python main.py topics --file=topics.csv --all_time=true --max=20 
@@ -102,7 +102,7 @@ $ python main.py search --file=keywords.csv
 ##### Additional arguments:
 - --from_date: start date for questions (default is 01/01/2017)
 - --to_date: end date for questions (default is current date)
-- --max: choose the max results up to 100 (default is 10)
+- --max: choose the max results up to 100 (default is 10 per keyword)
 
 ```
 $ python main.py search --file=keywords.csv --from_date=07/01/2017 --to_date=07/31/2017 --max=25
