@@ -11,13 +11,21 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 SITE = StackAPI('stackoverflow')
-SITE.key = ""
-SITE.access_token = ""
 TIMESTR = time.strftime("%Y%m%d-%H%M%S")
+
+KEYS = open('client_secrets.csv', 'rb')
+KEYS_READ = csv.reader(KEYS)
+next(KEYS_READ, None)
+
+for row in KEYS_READ:
+    CLIENT_ID = row[0]
+    SITE.key = row[1]
+    SITE.access_token = row[2]
+KEYS.close()
 
 
 def token():
-    resp = requests.get('https://stackexchange.com/oauth/dialog?client_id=&scope=no_expiry&'
+    resp = requests.get('https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + '&scope=no_expiry&'
                         'redirect_uri=https://stackexchange.com/oauth/login_success/')
     pprint(vars(resp))
 
