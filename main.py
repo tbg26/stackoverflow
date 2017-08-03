@@ -1,5 +1,4 @@
 from stackapi import StackAPI
-from pprint import pprint
 import time
 import datetime
 import requests
@@ -25,7 +24,7 @@ KEYS.close()
 
 
 def token(options):
-    resp = requests.get('https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + '&scope=no_expiry&'
+    requests.get('https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + '&scope=no_expiry&'
                         'redirect_uri=https://stackexchange.com/oauth/login_success/')
     url = 'https://stackexchange.com/oauth/dialog?client_id=' + CLIENT_ID + \
           '&redirect_uri=https%3a%2f%2fstackexchange.com%2foauth%2flogin_success%2f&scope=no_expiry' \

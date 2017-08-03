@@ -14,7 +14,6 @@ Python 2.7
 
 ## Libraries
 - StackAPI
-- pprint
 - requests
 - argparse
 
