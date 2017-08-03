@@ -1,4 +1,3 @@
-StackAPI
-pprint
+stackapi
 requests
 argparse
