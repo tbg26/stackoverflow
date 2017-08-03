@@ -105,5 +105,5 @@ $ python main.py search --file=keywords.csv
 - --max: choose the max results up to 100 (default is 10)
 
 ```
-$ python main.py topics --file=keywords.csv --from_date=07/01/2017 --to_date=07/31/2017 --max=25
+$ python main.py search --file=keywords.csv --from_date=07/01/2017 --to_date=07/31/2017 --max=25
 ```
